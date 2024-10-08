@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import javax.swing.Box;
 
 /**
  * A class to hold details of audio tracks.
@@ -15,7 +16,7 @@ public class MusicOrganizer
     private MusicPlayer player;
     // A reader that can read music files and load them as tracks.
     private TrackReader reader;
-
+    
     /**
      * Create a MusicOrganizer
      */
@@ -134,7 +135,69 @@ public class MusicOrganizer
     {
         player.stop();
     }
-
+    
+    public void 
+        removedThirdTrack() {
+            if(tracks.size() >=3) {
+                tracks.remove(2);
+            } else {
+                System.out.println("Less than 3 items in the list.");
+            }
+        }
+        
+    public boolean checkIndex(int index) {
+        return index >= 0 &&
+        index < tracks.size();
+    }
+    
+    public void listFiles() {
+        for (int i = 0; i <
+        tracks.size(); i++) {
+            if (validIndex(i)) {
+                System.out.println(tracks.get(i));
+            }
+        }
+    }
+    
+    public void multipleOfFive() {
+        int i = 10;
+        while (i <= 95) {
+            System.out.println(i);
+            i += 5;
+        }
+    }
+    
+    public void sumOfOneToTen() {
+        int sum = 0;
+        int i = 1;
+        while (i <= 10) {
+            sum += i;
+            i++;
+        }
+        System.out.println("Sum is: " + sum);
+    }
+    
+    public int sum(int a, int b) {
+        int sum = 0;
+        while (a <= b) {
+            sum += a;
+            a++;
+        }
+        return sum;
+    }
+    public static void  main(String[] args) {
+        MusicOrganizer organizer = new MusicOrganizer();
+    }
+    
+    public boolean validIndex(int index) {
+        if (index >= 0 && index < tracks.size()) {
+            return true;
+        } else {
+            System.out.println("Invalid index:" + index);
+            return false;
+        }
+    }
+    
     /**
      * Determine whether the given index is valid for the collection.
      * Print an error message if it is not.
